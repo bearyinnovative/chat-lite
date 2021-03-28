@@ -1,22 +1,26 @@
 import React, { useRef, useState, useCallback } from "react";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
+import { im } from "../im";
+import { replaceIMState } from "@didi/chat-lib/dist/redux";
 
 export default function Home() {
   const usernameRef = useRef();
   const passRef = useRef();
-  const router = useRouter()
+  const router = useRouter();
 
   const [webBase, setWebBase] = useState("http://poc.saas.bearychat.com");
-  const [haloReg, setHaloReg] = useState("http://haloreg.saas.bearychat.com/get_halo_info");
+  const [haloReg, setHaloReg] = useState(
+    "http://haloreg.saas.bearychat.com/get_halo_info"
+  );
 
   const handleLogin = useCallback(async () => {
     const username = usernameRef.current.value;
     const pass = passRef?.current.value;
     const response = await fetch(`${webBase}/api/sso/external-mock`, {
-      method: 'post',
+      method: "post",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         username,
@@ -25,8 +29,16 @@ export default function Home() {
     });
 
     const ticket = (await response.json()).result.ticket;
-    window.__ticket = ticket;
-    router.push('/chat')
+
+    im.setup({
+      ticket,
+      apiBase: webBase,
+    });
+    im.socket.setup({
+      registry: haloReg,
+    });
+    im.connect();
+    router.push("/chat");
   }, [usernameRef, passRef]);
 
   return (
