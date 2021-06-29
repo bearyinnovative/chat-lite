@@ -1,12 +1,10 @@
 import React, { useRef, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
-import { im } from "../im";
-import { replaceIMState } from "@didi/chat-lib/dist/redux";
 
 export default function Home() {
-  const usernameRef = useRef();
-  const passRef = useRef();
+  const usernameRef = useRef(null);
+  const passRef = useRef(null);
   const router = useRouter();
 
   const [webBase, setWebBase] = useState("http://poc.saas.bearychat.com");
@@ -15,11 +13,13 @@ export default function Home() {
   );
 
   const handleLogin = useCallback(async () => {
-    const username = usernameRef.current.value;
-    const pass = passRef?.current.value;
+    const username = usernameRef?.current?.value;
+    const pass = passRef?.current?.value;
     const response = await fetch(`${webBase}/api/sso/external-mock`, {
-      method: "post",
+      method: 'POST',
+      mode: 'cors',
       headers: {
+        "Accept": '*/*',
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -30,12 +30,14 @@ export default function Home() {
 
     const ticket = (await response.json()).result.ticket;
 
-    im.setup({
-      ticket,
-      apiBase: webBase,
-    });
+    const { im } = await import('../im');
+
     im.socket.setup({
       registry: haloReg,
+    });
+    im.session.initiate({
+      webBase,
+      ticket,
     });
     im.connect();
     router.push("/chat");

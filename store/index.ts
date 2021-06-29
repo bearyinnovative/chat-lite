@@ -4,11 +4,11 @@ import {
   createReducer as createChatLibReducer,
   replaceIMState,
 } from "@didi/chat-lib/dist/redux";
-import { im } from "../im";
+// import { im } from "../im";
 
 export const store = configureStore({
   reducer: {
-    [chatLibNamespace]: createChatLibReducer(im.stateful.getState()),
+    [chatLibNamespace]: createChatLibReducer(),
   },
   middleware: getDefaultMiddleware({
     serializableCheck: {
@@ -16,13 +16,4 @@ export const store = configureStore({
       ignoredPaths: [chatLibNamespace]
     }
   })
-});
-
-im.stateful.subscribe((state, changed) => {
-  store.dispatch(
-    replaceIMState(
-      changed.map((changed) => changed.type),
-      state
-    )
-  );
 });

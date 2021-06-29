@@ -1,0 +1,28 @@
+.container {
+  overflow-y: auto;
+  height: 100vh;
+  padding-bottom: 24px;
+}
+
+.stream {
+  border-left: 1px solid #EEF1F4;
+}
+
+.metaMine {
+  flex-direction: row-reverse;
+}
+
+.textMine {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.avatarMine {
+  margin-left: 16px;
+}
+
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  padding-top: 24px;
+}

@@ -1,0 +1,19 @@
+.container{
+  padding-bottom: 12px;
+  position: relateive;
+}
+
+.mention {
+  height: 100%;
+  width: 100%;
+}
+
+.container textarea {
+  height: 100%;
+}
+
+.send {
+  position: absolute;
+  bottom: 24px;
+  right: 12px;
+}
