@@ -3,7 +3,7 @@ import {
   namespace as chatLibNamespace,
   createReducer as createChatLibReducer,
   replaceIMState,
-} from "@didi/chat-lib/dist/redux";
+} from "@dididc/chat-lib/dist/redux";
 // import { im } from "../im";
 
 export const store = configureStore({

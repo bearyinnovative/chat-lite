@@ -1,6 +1,6 @@
 import { List, Avatar } from 'antd';
 import { useSelector } from 'react-redux';
-import { namespace } from '@didi/chat-lib/dist/redux';
+import { namespace } from '@dididc/chat-lib/dist/redux';
 import styles from './Inbox.module.css';
 import cx from 'classnames';
 

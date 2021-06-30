@@ -1,6 +1,6 @@
-import { createStatefulIM } from '@didi/chat-lib/dist/createIM';
+import { createStatefulIM } from '@dididc/chat-lib/dist/createIM';
 import { store } from './store/index';
-import { replaceIMState } from '@didi/chat-lib/dist/redux';
+import { replaceIMState } from '@dididc/chat-lib/dist/redux';
 
 export const im = createStatefulIM({
   apiBase: 'http://poc.saas.bearychat.com/',

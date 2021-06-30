@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { namespace } from '@didi/chat-lib/dist/redux';
-import { User, VChannel, VChannelType } from '@didi/chat-lib/dist/entity';
+import { namespace } from '@dididc/chat-lib/dist/redux';
+import { User, VChannel, VChannelType } from '@dididc/chat-lib/dist/entity';
 import { im } from '../im';
 import styles from './Compose.module.css';
 import { Mentions, Button } from 'antd';

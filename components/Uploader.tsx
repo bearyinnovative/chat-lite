@@ -1,6 +1,6 @@
 import React, { useRef, useCallback, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import upload from '@didi/dc-file-sdk';
+import upload from '@dididc/file-sdk';
 import cx from 'classnames';
 import styles from './Uploader.module.css';
 import { Progress } from 'antd';

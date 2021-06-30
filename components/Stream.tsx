@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { namespace } from '@didi/chat-lib/dist/redux';
+import { namespace } from '@dididc/chat-lib/dist/redux';
 import { List, Avatar, Spin } from 'antd';
-import { Stream, Message, MessageHandle } from '@didi/chat-lib/dist/entity';
+import { Stream, Message, MessageHandle } from '@dididc/chat-lib/dist/entity';
 import { im } from '../im';
 import styles from './Stream.module.css';
 import cx from 'classnames';
