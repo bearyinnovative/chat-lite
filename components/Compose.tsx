@@ -6,37 +6,59 @@ import { im } from '../im';
 import styles from './Compose.module.css';
 import { Mentions, Button } from 'antd';
 import cx from 'classnames';
+import Uploader from './Uploader';
+import { useMediaQuery } from 'react-responsive';
 
 const { Option } = Mentions;
 
-function Compose(props: { vchannelId: string; className?: string }) {
+function Compose(props: {
+  vchannelId: string;
+  className?: string;
+  setCurrenteVid: (vid: string) => void;
+}) {
+  const { vchannelId, className, setCurrenteVid } = props;
   const [text, setText] = useState('');
-  const { vchannelId, className } = props;
   const vc: VChannel = useSelector((state) => {
     return state[namespace]?.conversation?.vchannels.get(vchannelId);
   });
   const users: User = useSelector((state) => {
-    if (vc.vchannel_type !== VChannelType.CHANNEL) return [];
+    if (vc?.vchannel_type !== VChannelType.CHANNEL) return [];
     const imState = state[namespace];
-    const uids = imState.channels.channelUsers.get(vc.channel_id);
+    const uids = imState.channels.channelUsers.get(vc?.channel_id);
     return Array.from(uids).map((uid) => imState.users.get(uid));
+  });
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width: 1224px)',
   });
   const sendMessage = useCallback(() => {
     im.core.message.sendText(text, vchannelId);
     setText('');
   }, [text, vchannelId]);
+  const handleBack = useCallback(() => {
+    setCurrenteVid('');
+  }, [setCurrenteVid]);
   useEffect(() => {
-    if (vc.vchannel_type === VChannelType.CHANNEL) {
-      im.stateful.channel.getChannelUsers(vc.channel_id);
+    if (vc?.vchannel_type === VChannelType.CHANNEL) {
+      im.stateful.channel.getChannelUsers(vc?.channel_id);
     }
   }, [vc]);
 
   return (
-    <div className={cx(className, styles.container)}>
+    <div
+      className={cx(
+        className,
+        isDesktopOrLaptop ? styles.container : styles.containerMobile
+      )}
+    >
+      {!isDesktopOrLaptop && (
+        <span className={styles.back} onClick={handleBack}>
+          {'<返回'}
+        </span>
+      )}
       <Mentions
         value={text}
         onChange={setText}
-        className={styles.mention}
+        className={isDesktopOrLaptop ? styles.mention : styles.mentionMobile}
         notFoundContent={<span>Not Implemented</span>}
       >
         {users.map(({ login, avatar_url: avatar }) => (
@@ -50,7 +72,15 @@ function Compose(props: { vchannelId: string; className?: string }) {
           </Option>
         ))}
       </Mentions>
-      <Button className={styles.send} type="primary" onClick={sendMessage}>
+      <Uploader
+        className={isDesktopOrLaptop ? styles.upload : styles.uploadMobile}
+        vchannelId={vchannelId}
+      />
+      <Button
+        className={isDesktopOrLaptop ? styles.send : styles.uploadMobile}
+        type="primary"
+        onClick={sendMessage}
+      >
         发送
       </Button>
     </div>

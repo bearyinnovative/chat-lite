@@ -1,6 +1,11 @@
 .container{
   padding-bottom: 12px;
-  position: relateive;
+  position: relative;
+}
+
+.containerMobile {
+  display: flex;
+  align-items: center;
 }
 
 .mention {
@@ -8,12 +13,35 @@
   width: 100%;
 }
 
+.mentionMobile {
+  flex-grow: 1;
+  }
+
 .container textarea {
   height: 100%;
+  padding-right: 68px;
 }
 
 .send {
   position: absolute;
   bottom: 24px;
   right: 12px;
+}
+
+.upload {
+  position: absolute;
+  bottom: 80px;
+  right: 12px;
+}
+
+.uploadMobile {
+  flex-shrink: 0; 
+}
+
+.sendMobile {
+  flex-shrink: 0; 
+}
+
+.back {
+  flex-shrink: 0;
 }

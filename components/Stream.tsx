@@ -39,7 +39,7 @@ function StreamComp(props: { vchannelId: string; className: string }) {
             queryMode: 'since',
           });
         }}
-        hasMore={stream.hasMoreBefore}
+        hasMore={stream?.hasMoreBefore}
         useWindow={false}
         isReverse
         loader={

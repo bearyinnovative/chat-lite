@@ -1,32 +1,15 @@
-.listContainer {
-  height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  width: 260px;
-}
-
-.item {
-  background-color: white;
-  padding: 4px 12px;
-  cursor: pointer;
-}
-
-.itemName {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.itemPreview {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.main {
+.containerMobile {
   display: flex;
   flex-direction: column;
   height: 100vh;
+}
+
+.container {
+  display: flex;
+}
+
+.inboxMobile {
+  width: 100vw;
 }
 
 .stream {
@@ -35,4 +18,17 @@
 
 .compose {
   flex-basis: 200px;
+  flex-shrink: 0;
+}
+
+.composeMobile {
+  flex-basis: 40px;
+  flex-shrink: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100vh;
 }
