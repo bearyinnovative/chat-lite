@@ -92,15 +92,10 @@
   resolved "https://registry.yarnpkg.com/@ctrl/tinycolor/-/tinycolor-3.4.0.tgz#c3c5ae543c897caa9c2a68630bed355be5f9990f"
   integrity sha512-JZButFdZ1+/xAfpguQHoabIXkcqRRKpMrWKBkpEZZyxfY9C1DpADFB8PEqGSTeFr135SaTRfKqGKx5xSCLI7ZQ==
 
-"@didi/halo-client-web@^0.7.0":
-  version "0.7.0"
-  resolved "https://artifactory.intra.xiaojukeji.com:443/artifactory/api/npm/npm-dev-local/@didi/halo-client-web/-/@didi/halo-client-web-0.7.0.tgz#a5ccdaa965ca00f4287514941286e26bd487fe34"
-  integrity sha1-pczaqWXKAPQodRSUEobia9SH/jQ=
-
-"@dididc/chat-lib@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@dididc/chat-lib/-/chat-lib-1.0.1.tgz#20dfe817568340d36ea16e68f6e0797bf2687c6d"
-  integrity sha512-+v+iyozU5r8M2DmvVofjjklNq+1LncrvsUoWsi4vwg0O9koI/LSlEstkhTFIRYFFAZ0MFuO65FQnkeOIoiYRKg==
+"@dididc/chat-lib@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@dididc/chat-lib/-/chat-lib-1.0.2.tgz#c51c779c960b7deeef9572aad400989fc0acc7e8"
+  integrity sha512-S5c1juU6oGRlrDUOog5kAUcVD+tH8pG3k4N9BO1sc0ZHuCcJbpnrECQ9//itegpz6iuA/8DIdbeW2FqrWJADqQ==
   dependencies:
     "@reduxjs/toolkit" "^1.5.0"
     immer "^8.0.0"
@@ -108,7 +103,7 @@
     rxjs "^6.6.3"
     uuid "^8.3.2"
   optionalDependencies:
-    "@didi/halo-client-web" "^0.7.0"
+    "@dididc/halo-client-web" "^0.7.0"
 
 "@dididc/file-sdk@^1.0.0":
   version "1.0.0"
@@ -116,6 +111,11 @@
   integrity sha512-uGP/Vfo7zdtdh+dHEVGKN6c8ekXVNmC5bj4+oWTlfBBD6AtfXZf7dflQO+4T5xSV7mOEHKRbwVyolxtKJ7mYYw==
   dependencies:
     lodash "^4.17.15"
+
+"@dididc/halo-client-web@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@dididc/halo-client-web/-/halo-client-web-0.7.0.tgz#5a1aeb3e2bc2415ae87b17666135fb1c51eb3692"
+  integrity sha512-qVQHVILl0ZXZCFUmqieGDi1gl98kQqvgeqWx7G9gzd0Jj1qUcGXFIg2Eb/FtfvwIR3j/qi5xWuordFkf24Temg==
 
 "@hapi/accept@5.0.1":
   version "5.0.1"

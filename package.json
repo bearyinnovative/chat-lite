@@ -8,8 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
-    "@didi/halo-client-web": "^0.7.0",
-    "@dididc/chat-lib": "^1.0.1",
+    "@dididc/halo-client-web": "^0.7.0",
+    "@dididc/chat-lib": "^1.0.2",
     "@dididc/file-sdk": "^1.0.0",
     "@reduxjs/toolkit": "^1.5.1",
     "antd": "^4.16.5",
