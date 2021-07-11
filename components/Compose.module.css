@@ -23,9 +23,7 @@
 }
 
 .send {
-  position: absolute;
-  bottom: 24px;
-  right: 12px;
+  margin-left: 10px;
 }
 
 .upload {
@@ -44,4 +42,11 @@
 
 .back {
   flex-shrink: 0;
+}
+
+.buttons {
+  display: flex;
+  position: absolute;
+  bottom: 24px;
+  right: 12px;
 }

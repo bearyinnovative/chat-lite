@@ -8,6 +8,7 @@ import { Mentions, Button } from 'antd';
 import cx from 'classnames';
 import Uploader from './Uploader';
 import { useMediaQuery } from 'react-responsive';
+import { getDefaultCodes, Emoji, compile } from '@dididc/emojipack';
 
 const { Option } = Mentions;
 
@@ -37,6 +38,13 @@ function Compose(props: {
   const handleBack = useCallback(() => {
     setCurrenteVid('');
   }, [setCurrenteVid]);
+  const insertRandomEmoji = useCallback(() => {
+    const codes = getDefaultCodes();
+    const idx = Math.floor(Math.random() * codes.length);
+    const shortcode = codes[idx];
+
+    setText((t) => t + ' ' + compile(shortcode));
+  }, []);
   useEffect(() => {
     if (vc?.vchannel_type === VChannelType.CHANNEL) {
       im.stateful.channel.getChannelUsers(vc?.channel_id);
@@ -76,13 +84,18 @@ function Compose(props: {
         className={isDesktopOrLaptop ? styles.upload : styles.uploadMobile}
         vchannelId={vchannelId}
       />
-      <Button
-        className={isDesktopOrLaptop ? styles.send : styles.uploadMobile}
-        type="primary"
-        onClick={sendMessage}
-      >
-        发送
-      </Button>
+      <div className={styles.buttons}>
+        <Button type="primary" onClick={insertRandomEmoji}>
+          <Emoji shortcode="smile_giggle" />
+        </Button>
+        <Button
+          className={isDesktopOrLaptop ? styles.send : styles.uploadMobile}
+          type="primary"
+          onClick={sendMessage}
+        >
+          发送
+        </Button>
+      </div>
     </div>
   );
 }

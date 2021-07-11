@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { namespace } from '@dididc/chat-lib/dist/redux';
 import { List, Avatar, Spin } from 'antd';
@@ -7,8 +7,7 @@ import { im } from '../im';
 import styles from './Stream.module.css';
 import cx from 'classnames';
 import InfiniteScroll from 'react-infinite-scroller';
-
-const currentUserId = im.session.getUserId();
+import MessageText from './MessageText';
 
 function StreamComp(props: { vchannelId: string; className: string }) {
   const { vchannelId, className } = props;
@@ -19,6 +18,7 @@ function StreamComp(props: { vchannelId: string; className: string }) {
   const messages: Map<string, Message> = useSelector((state) => {
     return state[namespace]?.message?.message_records;
   });
+  const currentUserId = useMemo(() => im.session.getUserId(), []);
   useEffect(() => {
     im.stateful.message.pullLatest({ vchannelId, count: 32 });
     if (list.current) {
@@ -70,9 +70,10 @@ function StreamComp(props: { vchannelId: string; className: string }) {
                     </div>
                   }
                   description={
-                    <div className={cx(isByMe && styles.textMine)}>
-                      {message.text}
-                    </div>
+                    <MessageText
+                      text={message.text}
+                      className={isByMe && styles.textMine}
+                    />
                   }
                 />
               </List.Item>
