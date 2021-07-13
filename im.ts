@@ -3,7 +3,7 @@ import { store } from './store/index';
 import { replaceIMState } from '@dididc/chat-lib/dist/redux';
 
 export const im = createStatefulIM({
-  apiBase: 'http://poc.saas.bearychat.com/',
+  apiBase: 'https://poc.saas.bearychat.com/',
   haloRegistry: 'http://haloreg.saas.bearychat.com/get_halo_info',
   locale: 'zh-CN',
 });

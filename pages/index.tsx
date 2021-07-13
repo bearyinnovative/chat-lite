@@ -7,7 +7,7 @@ export default function Home() {
   const passRef = useRef(null);
   const router = useRouter();
 
-  const [webBase, setWebBase] = useState("http://poc.saas.bearychat.com");
+  const [webBase, setWebBase] = useState("https://poc.saas.bearychat.com");
   const [haloReg, setHaloReg] = useState(
     "http://haloreg.saas.bearychat.com/get_halo_info"
   );
