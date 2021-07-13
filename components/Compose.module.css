@@ -15,7 +15,8 @@
 
 .mentionMobile {
   flex-grow: 1;
-  }
+  margin: 0 4px;
+}
 
 .container textarea {
   height: 100%;
@@ -38,6 +39,7 @@
 
 .sendMobile {
   flex-shrink: 0; 
+  margin-left: 4px;
 }
 
 .back {
@@ -49,4 +51,10 @@
   position: absolute;
   bottom: 24px;
   right: 12px;
+}
+
+.buttonsMobile {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }

@@ -59,9 +59,9 @@ function Compose(props: {
       )}
     >
       {!isDesktopOrLaptop && (
-        <span className={styles.back} onClick={handleBack}>
+        <Button className={styles.back} onClick={handleBack}>
           {'<返回'}
-        </span>
+        </Button>
       )}
       <Mentions
         value={text}
@@ -84,12 +84,12 @@ function Compose(props: {
         className={isDesktopOrLaptop ? styles.upload : styles.uploadMobile}
         vchannelId={vchannelId}
       />
-      <div className={styles.buttons}>
+      <div className={isDesktopOrLaptop ? styles.buttons : styles.buttonsMobile}>
         <Button type="primary" onClick={insertRandomEmoji}>
           <Emoji shortcode="smile_giggle" />
         </Button>
         <Button
-          className={isDesktopOrLaptop ? styles.send : styles.uploadMobile}
+          className={isDesktopOrLaptop ? styles.send : styles.sendMobile}
           type="primary"
           onClick={sendMessage}
         >
