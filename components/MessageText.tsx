@@ -24,8 +24,6 @@ function MessageText(props: { text: string; className?: string }) {
     segments.push(<span>{text}</span>);
   }
 
-  console.log('segments: ', segments);
-
   return <div className={cx(className)}>{segments}</div>;
 }
 

@@ -44,7 +44,7 @@ function Uploader(props: { vchannelId: string; className: string }) {
         console.error(e);
       },
     });
-  }, []);
+  }, [vchannelId]);
 
   return (
     <div className={cx(styles.container, className)}>

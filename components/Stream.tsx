@@ -8,6 +8,15 @@ import styles from './Stream.module.css';
 import cx from 'classnames';
 import InfiniteScroll from 'react-infinite-scroller';
 import MessageText from './MessageText';
+import Image from './Image';
+
+export const previewAbleMimeTypes = new Set([
+  'image/gif',
+  'image/jpeg',
+  'image/png',
+  'image/bmp',
+  'image/svg+xml',
+]);
 
 function StreamComp(props: { vchannelId: string; className: string }) {
   const { vchannelId, className } = props;
@@ -55,6 +64,8 @@ function StreamComp(props: { vchannelId: string; className: string }) {
           renderItem={(item: MessageHandle) => {
             const message = messages.get(item.key);
             const isByMe = message.content?.author?.id === currentUserId;
+            const isPreviewableImage =
+              message.isPreviewableImage(previewAbleMimeTypes);
             return (
               <List.Item className={styles.item} key={message.key}>
                 <List.Item.Meta
@@ -70,10 +81,14 @@ function StreamComp(props: { vchannelId: string; className: string }) {
                     </div>
                   }
                   description={
-                    <MessageText
-                      text={message.text}
-                      className={isByMe && styles.textMine}
-                    />
+                    isPreviewableImage ? (
+                      <Image file={message?.content?.file} />
+                    ) : (
+                      <MessageText
+                        text={message.text}
+                        className={isByMe && styles.textMine}
+                      />
+                    )
                   }
                 />
               </List.Item>

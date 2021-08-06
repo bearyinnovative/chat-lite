@@ -110,10 +110,10 @@
   resolved "https://registry.yarnpkg.com/@dididc/emojipack/-/emojipack-1.0.0.tgz#6f894fd0cf3e4824b46cbf0250085e9fad43334f"
   integrity sha512-3qVIsiwmBbjhlZ/wtHwDwl4ru7RDnHe3mwboEK/zW7SfqvgnpbqIdnjpioAP+LGnPp6k3rlOJ56x4grwffn+rA==
 
-"@dididc/file-sdk@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@dididc/file-sdk/-/file-sdk-1.0.1.tgz#31bf8733167665b2b9c33a41f278e4f7659a7832"
-  integrity sha512-MQykEDJFBaplEPzv7HMF2MYFiPycW9stFdQzpnK5tYkquafFWy4hW02/0qGmY/JW+ZEFoUOGQXYKDJ2VBPVB7Q==
+"@dididc/file-sdk@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@dididc/file-sdk/-/file-sdk-1.0.2.tgz#bc0336968386c4749fbf7f2c4d174013b4aa0ca2"
+  integrity sha512-jKjwxGtuMt0mvNXCiEOvTGf/LfFDzD1I0MwXfXBPUKTE35bgXkck0OIuIr7+m/d6IovciAN+B0IDHvMoUhMMgg==
   dependencies:
     lodash "^4.17.15"
 
