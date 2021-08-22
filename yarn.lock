@@ -92,10 +92,10 @@
   resolved "https://registry.yarnpkg.com/@ctrl/tinycolor/-/tinycolor-3.4.0.tgz#c3c5ae543c897caa9c2a68630bed355be5f9990f"
   integrity sha512-JZButFdZ1+/xAfpguQHoabIXkcqRRKpMrWKBkpEZZyxfY9C1DpADFB8PEqGSTeFr135SaTRfKqGKx5xSCLI7ZQ==
 
-"@dididc/chat-lib@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@dididc/chat-lib/-/chat-lib-1.0.4.tgz#7d80e7d06eb838e5f12e283d4d6af853b2ab6d76"
-  integrity sha512-L9hOwiDY6zD6THSkrAZODnwSoudQ9jIOvgSzzr1A4yGj2rb8iJm0WIrvYrLGZwwGzwzBYirgBzW/Zds7vOad3Q==
+"@dididc/chat-lib@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@dididc/chat-lib/-/chat-lib-1.0.7.tgz#d40a67a350f8f8a169bf960fff266aabe0661eec"
+  integrity sha512-kK5zD/elaBt/rIEFw0lXnSDjgGEFNnBiWxRlRh1b8zvsfF2D2TX6bC0tB1XM04RlSK3s2xlUiN0WEFLtYCcDEw==
   dependencies:
     "@reduxjs/toolkit" "^1.5.0"
     immer "^8.0.0"
@@ -103,7 +103,7 @@
     rxjs "^6.6.3"
     uuid "^8.3.2"
   optionalDependencies:
-    "@dididc/halo-client-web" "^0.7.0"
+    "@dididc/halo-client-web" "^0.7.2"
 
 "@dididc/emojipack@^1.0.0":
   version "1.0.0"
@@ -117,10 +117,10 @@
   dependencies:
     lodash "^4.17.15"
 
-"@dididc/halo-client-web@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@dididc/halo-client-web/-/halo-client-web-0.7.0.tgz#5a1aeb3e2bc2415ae87b17666135fb1c51eb3692"
-  integrity sha512-qVQHVILl0ZXZCFUmqieGDi1gl98kQqvgeqWx7G9gzd0Jj1qUcGXFIg2Eb/FtfvwIR3j/qi5xWuordFkf24Temg==
+"@dididc/halo-client-web@^0.7.2":
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/@dididc/halo-client-web/-/halo-client-web-0.7.2.tgz#8f79ca9393cb7ed7c75de3b1ae6a39cd5689a1f5"
+  integrity sha512-UiW9sJqw7sY3l8pxMzMBuEY11FUWFHElV2YF4FsEoeQSm2uTjwNL62uzmxTzdbVS5eDlVMAJCUeGbAAuExb/Kw==
 
 "@hapi/accept@5.0.2":
   version "5.0.2"
