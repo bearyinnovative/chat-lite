@@ -30,6 +30,7 @@ function StreamComp(props: { vchannelId: string; className: string }) {
   const currentUserId = useMemo(() => im.session.getUserId(), []);
   useEffect(() => {
     im.stateful.message.pullLatest({ vchannelId, count: 32 });
+    im.stateful.conversation.markRead(vchannelId);
     if (list.current) {
       list.current.scrollTop = list.current.scrollHeight;
     }

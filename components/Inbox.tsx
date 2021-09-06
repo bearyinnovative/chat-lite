@@ -1,10 +1,13 @@
-import { List, Avatar } from 'antd';
+import { List, Avatar, Badge } from 'antd';
 import { useSelector } from 'react-redux';
 import { namespace } from '@dididc/chat-lib/dist/redux';
 import styles from './Inbox.module.css';
 import cx from 'classnames';
 
-function Inbox(props: { setCurrentVid: (vid: string) => void, className?: string }) {
+function Inbox(props: {
+  setCurrentVid: (vid: string) => void;
+  className?: string;
+}) {
   const { setCurrentVid, className } = props;
   const convs = useSelector((state) => {
     return state[namespace]?.conversation?.vchannels;
@@ -24,7 +27,11 @@ function Inbox(props: { setCurrentVid: (vid: string) => void, className?: string
             onClick={setCurrentVid.bind(null, vid)}
           >
             <List.Item.Meta
-              avatar={<Avatar src={item.avatar_url} />}
+              avatar={
+                <Badge count={item.unread_count} size="small">
+                  <Avatar src={item.avatar_url} />
+                </Badge>
+              }
               title={<span className={styles.itemName}>{item.name}</span>}
               description={
                 <span className={styles.itemPreview}>
